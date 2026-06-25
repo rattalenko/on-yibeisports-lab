@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>易倍体育 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce9d8 0%, #f5d6b8 30%, #ecc4a0 70%, #dfb28a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #2a1f18;
+    }
+
+    .magazine-card {
+      max-width: 980px;
+      width: 100%;
+      background: rgba(255, 255, 245, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 20px 40px -12px rgba(80, 45, 20, 0.25), 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem 2.8rem 3rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .magazine-card {
+        padding: 1.8rem 1.4rem 2.2rem;
+        border-radius: 32px 32px 24px 24px;
+      }
+    }
+
+    /* 杂志风格横幅 */
+    .hero-banner {
+      background: linear-gradient(130deg, #dbaa7b, #c68f5e);
+      margin: -2.5rem -2.8rem 2.2rem -2.8rem;
+      padding: 3.2rem 2.8rem 2.6rem;
+      border-radius: 48px 48px 80px 16px;
+      color: #fcf4ec;
+      box-shadow: inset 0 -2px 0 rgba(255, 235, 210, 0.3);
+    }
+
+    @media (max-width: 680px) {
+      .hero-banner {
+        margin: -1.8rem -1.4rem 1.8rem -1.4rem;
+        padding: 2.4rem 1.4rem 2rem;
+        border-radius: 32px 32px 48px 12px;
+      }
+    }
+
+    .hero-banner h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(60, 30, 10, 0.15);
+    }
+
+    .hero-banner .sub {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 350;
+      max-width: 70%;
+      border-left: 3px solid rgba(255, 235, 200, 0.6);
+      padding-left: 1rem;
+    }
+
+    @media (max-width: 550px) {
+      .hero-banner h1 {
+        font-size: 2rem;
+      }
+      .hero-banner .sub {
+        max-width: 100%;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* 文本段落区域 */
+    .content-block {
+      margin: 1.8rem 0 2rem;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin-bottom: 0.75rem;
+      color: #4f321e;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid #e5cdb6;
+      padding-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .content-block p {
+      margin: 1rem 0;
+      font-size: 1.02rem;
+      text-align: justify;
+    }
+
+    /* 特点卡片网格 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .feature-item {
+      flex: 1 1 200px;
+      background: #faf1e7;
+      padding: 1.2rem 1.2rem 1.4rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 8px rgba(120, 70, 30, 0.04);
+      transition: transform 0.15s ease, background 0.2s;
+    }
+
+    .feature-item:hover {
+      background: #f6e7d8;
+      transform: translateY(-2px);
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #6b4f37;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      margin: 0.3rem 0 0;
+      color: #3d2c1d;
+    }
+
+    /* 圆角按钮感链接 */
+    .link-button-wrapper {
+      margin: 2rem 0 0.8rem;
+      text-align: center;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: #dbaa7b;
+      color: #2a1f18;
+      padding: 0.7rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 450;
+      font-size: 1.2rem;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(150, 90, 40, 0.12);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      border: 1px solid rgba(255, 240, 220, 0.3);
+    }
+
+    .link-button:hover {
+      background: #d09c6a;
+      box-shadow: 0 6px 14px rgba(130, 70, 25, 0.18);
+      transform: scale(1.01);
+    }
+
+    .link-button:active {
+      transform: scale(0.98);
+    }
+
+    .faq-snippet {
+      background: #f4e8dd;
+      padding: 1.4rem 1.8rem;
+      border-radius: 28px;
+      margin: 2rem 0 0.8rem;
+    }
+
+    .faq-snippet summary {
+      font-weight: 480;
+      font-size: 1.08rem;
+      cursor: pointer;
+      color: #3f2c1b;
+      padding: 0.25rem 0;
+    }
+
+    .faq-snippet p {
+      margin: 0.8rem 0 0.2rem;
+      font-size: 0.98rem;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f4632;
+      border-top: 1px dashed #dcc5b0;
+      padding-top: 1.8rem;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note a {
+      color: #6f4b2b;
+      text-decoration: underline wavy #c7a78b 1px;
+      text-underline-offset: 4px;
+      font-weight: 430;
+    }
+
+    .footer-note a:hover {
+      color: #3b2616;
+      text-decoration: underline;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      .feature-grid {
+        flex-direction: column;
+      }
+      .feature-item {
+        flex: 1 1 auto;
+      }
+      .link-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="magazine-card">
+    <!-- 首页横幅 -->
+    <div class="hero-banner">
+      <h1>易倍体育 · 视野</h1>
+      <div class="sub">信息聚合·内容平台·稳定陪伴</div>
+    </div>
+
+    <!-- 背景说明 + 三段自然介绍 -->
+    <div class="content-block">
+      <p>
+        在数字体育内容快速演变的今天，用户需要的不仅是一个简单的信息窗口，更希望拥有一个可信、清晰且持续更新的聚合环境。<strong>易倍体育</strong>正是基于这样的理解，围绕体育资讯、赛事数据与内容服务构建起一个专注而克制的平台。从站点定位到内容筛选，始终强调客观呈现与信息真实性，避免夸张叙事与诱导性入口。
+      </p>
+      <p>
+        平台本身不参与数据包装或虚假流量，所有信息模块均以实用、可查阅为原则。无论你关注竞技动态、运动科普，还是希望在一个低干扰的界面中获取内容，<a href="https://on-yibeisports.com" style="color: #6f4b2b; text-decoration: underline wavy #c7a78b 1px; text-underline-offset: 4px; font-weight: 500;">易倍体育</a>都试图提供一种更接近杂志阅读感的体验——节奏平缓，段落分明，不做弹窗轰炸。
+      </p>
+    </div>
+
+    <!-- 特点 / 场景 卡片式呈现（替代固定章节） -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>⚙️ 内容筛选</h3>
+        <p>围绕体育垂直领域，剔除冗余信息，保留赛事要点、背景延伸与实用数据。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📋 界面克制</h3>
+        <p>减少动态干扰与跳转陷阱，以清晰的信息层级和留白帮助用户聚焦内容本身。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📅 持续运营</h3>
+        <p>保持稳定的内容节奏与结构更新，不追逐短期热点，注重长期可信度。</p>
+      </div>
+    </div>
+
+    <!-- 第三段自然介绍（承接上文） -->
+    <div class="content-block">
+      <p>
+        从站点结构来说，易倍体育并未堆叠过多无关模块，而是将核心资源集中在“内容呈现”与“用户理解”上。它更像一本主题明确的数字刊物：每一屏都有其目的，每一段都经过编排。你可以在其中浏览赛事背景、了解运动知识，也可以将其作为日常信息的一站式参考。值得注意的是，平台的所有链接与跳转均保持透明，不会伪装成其他操作入口，这在一定程度上降低了误触或误导的可能。
+      </p>
+      <p>
+        对于新接触的用户，可以花几分钟熟悉版块分布，利用导航或分类索引快速定位感兴趣的内容。整个站点的设计哲学偏向于“让人读下去”，而非“让人点进来”。因此，在信息获取效率与视觉舒适度之间，它选择了后者作为基础。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要（保持真实，不做诱导） -->
+    <details class="faq-snippet">
+      <summary>📌 有关易倍体育的常见疑问摘要</summary>
+      <p><strong>平台是否提供数据下载或外部接口？</strong> 目前以阅读和浏览为主，不开放私有 API 或批量导出功能，所有内容仅供在线查阅。</p>
+      <p><strong>内容更新频率如何？</strong> 根据赛事周期与信息价值进行编排，不追求日更数量，更注重段落质量与引用准确性。</p>
+      <p><strong>是否有移动端适配？</strong> 站点采用响应式布局，手机与平板均可获得接近原生的阅读体验。</p>
+    </details>
+
+    <!-- 页尾访问提示（自然嵌入链接，不使用“进入、点击、访问、官网”等词） -->
+    <div class="footer-note">
+      <p>如果你想进一步了解站点结构或浏览最新内容，可以直接访问 
+        <a href="https://on-yibeisports.com">易倍体育</a>，在浏览器中打开即可阅览完整版。整个页面无强制注册，无弹窗广告，保持杂志式的沉静氛围。</p>
+      <p style="margin-top: 0.8rem; opacity: 0.75;">— 专题介绍页 ·  warm palette edition —</p>
+    </div>
+  </div>
+</body>
+</html>
